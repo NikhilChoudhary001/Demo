@@ -13,10 +13,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - $(aws ecr get-login --no-include-email --region ap-southeast-2 --profile saml)
+      - $(aws ecr get-login --no-include-email --region ap-southeast-2)
   build:
     commands:
-      - docker tag sampleimage:latest 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0    
+      - docker build -t sampleimage .
+      - docker tag sampleimage:latest 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0
   post_build:
     commands:
-      - docker push 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0	
+      - docker push 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0
