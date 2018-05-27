@@ -13,7 +13,6 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - printf "${AWS_KEY}\n${AWS_SEC}\n${AWS_REG}\n${AWS_OUT}\n" | aws configure --profile ${AWS_PROF}
       - $(aws ecr get-login --no-include-email --region ap-southeast-2 --profile saml)
   build:
     commands:
