@@ -16,8 +16,8 @@ phases:
       - $(aws ecr get-login --no-include-email --region ap-southeast-2)
   build:
     commands:
-      - docker build -t sampleimage1 .
-      - docker tag sampleimage1:latest 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0
+      - docker build -t sampleimage2 .
+      - docker tag sampleimage2:latest 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0
   post_build:
     commands:
       - docker push 340826353137.dkr.ecr.ap-southeast-2.amazonaws.com/test:version1.0.0
